@@ -6,11 +6,11 @@
 Desenvolver um sistema web que simula uma loja virtual com autenticação de usuário e carrinho de compras.
 
 ## Página de Login (index.php)
-Implemente uma página com:
-Campos:
-E-mail
-Senha
-Checkbox "Lembre-me"
+![Tela de Login](assets/img/screenshots/tela_login.png)
+**Implemente uma página com os campos:**
+- E-mail
+- Senha
+- Checkbox "Lembre-me"
 
 **Funcionalidades**:
 Ao submeter o formulário:

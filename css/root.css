@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "Genshin Impact";
+    src: url(../assets/fonts/zhcn.ttf);
+}
+
+:root{
+    --fonte-padrao: "Roboto", sans-serif;
+    --fonte-logo: "Genshin Impact";
+    --cor-destaque: #138EDA;
+    --gradiente-tematico: linear-gradient(to bottom, #2AB9F4, #138EDA);
+    --arredondamento-padrao: 8px;
+}
