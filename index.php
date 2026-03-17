@@ -17,7 +17,7 @@
             $email = $_POST['email'];
             $senha = $_POST['senha'];
 
-            if($_POST['lembre']){
+            if(isset($_POST['lembre'])){
                 setcookie('usuario', $email, (time() + (60*60*24*30)));
             }
 
