@@ -27,7 +27,7 @@ Redirecionar para a página dashboard.php após login
 Permitir acesso somente se o usuário estiver logado
 Caso contrário, redirecionar para login.php
 **Funcionalidades**:
-- Exibir uma mensagem: "Olá, [email do usuário]"
+- Exibir o usuário
 **Criar um array de produtos, contendo:**
 - ID
 - nome
