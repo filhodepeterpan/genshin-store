@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html{
@@ -124,11 +125,15 @@ button:hover{
 }
 
 .cabecalho{
+    position: fixed;
+    top: 0;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
     background-color: #FFFFFF;
+    z-index: 1;
 }
 
 .cabecalho-logo{
@@ -148,6 +153,10 @@ button:hover{
     display: flex;
     align-items: center;
     gap: 0.5rem;
+}
+
+main{
+    padding-top: 5rem;
 }
 
 #loja-de-armas{

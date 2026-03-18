@@ -77,7 +77,10 @@
                     </div>
                     
                     <br>
-                    <button class="comprar">Comprar</button>
+                    <form action="carrinho.php" method="POST">
+                        <input type="hidden" name="arma" value="<?= $arma['nome'] ?>">
+                        <button type="submit" class="comprar">Comprar</button>
+                    </form>
                 </div>
             </div>
 
