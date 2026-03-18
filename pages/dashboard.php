@@ -6,6 +6,31 @@
     }
 
     $usuario = $_SESSION['usuario'];
+
+    // GENSHIN.DEV
+    $api = "https://genshin.jmp.blue/weapons";
+
+    $resposta = @file_get_contents($api);
+
+    $armas = [];
+
+    if($resposta !== false){
+        $armas = json_decode($resposta, true);
+    }
+
+    $listaArmas = [];
+
+    if(is_array($armas)){
+        foreach ($armas as $id => $arma) {
+            $mora = 500 + ($id * $id) + ($id * 7 + ($id % 3) * 9); // só gerando o número menos padrozinado possível pra não ficar tão óbvio
+
+            $listaArmas[] = [
+                "nome" => ucwords(str_replace('-', ' ', $arma)),
+                "imagem" => "https://genshin.jmp.blue/weapons/$arma/icon",
+                "mora" => $mora
+            ];
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -15,17 +40,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../assets/icons/genshin.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/style.css">
-    <title>Genshin Store | Login</title>
+    <title>Genshin Store</title>
 </head>
-<body>
+<body id="dashboard">
     <header>
+
+        <nav class="cabecalho">
+            <div class="cabecalho-logo">
+                <img src="../assets/icons/genshin.ico" alt="logo" width="50">
+                <h1 id="logo">Genshin Store</h1>
+            </div>
+            <div id="conta">
+                <span id="usuario"><?php echo $usuario; ?></span>
+                <button id="deslogar">Sair</button>
+            </div>       
+        </nav>
+
     </header>
 
     <main>
-        <div id="login">
-            <h1 id="logo">Dashboard</h1>
-            <h2>Bem-vindo, <?php echo $usuario; ?>!</h2>
-            <button id="deslogar">Sair</button>
+        <h1 id="loja-de-armas">LOJA DE ARMAS</h1>
+        <div class="weapons-grid">
+
+        <?php foreach($listaArmas as $index => $arma): ?>
+
+            <div class="weapon-card">
+                <div>
+                    <img id="img-arma" src="<?= $arma['imagem'] ?>" alt="<?= $arma['nome'] ?>">
+                    <p><b>ID:</b> <?= $index + 1 ?></p>
+                    <p><?= $arma['nome'] ?></p>
+                </div>
+                <div>
+                    <div class="preco-em-mora">
+                        <img src="../assets/icons/mora.ico" alt="Mora" width="25">
+                        <span><?= $arma['mora'] ?></span>
+                    </div>
+                    
+                    <br>
+                    <button class="comprar">Comprar</button>
+                </div>
+            </div>
+
+        <?php endforeach; ?>
+
         </div>
     </main>
 

@@ -85,17 +85,20 @@ input::placeholder{
     width: 100%;
 }
 
-#entrar, #deslogar{
-    width: 100%;
-    background: var(--gradiente-tematico);
+button{
     color: #FFFFFF;
     border: none;
     border-radius: 4px;
-    padding: 0.5rem 0;
+    padding: 0.5rem 1rem;
     font-weight: 600;
+    background: var(--gradiente-tematico);
 }
 
-#entrar:hover, #deslogar:hover{
+#entrar{
+    width: 100%;
+}   
+
+button:hover{
     cursor: pointer;
     background: white;
     color: var(--cor-destaque);
@@ -103,10 +106,100 @@ input::placeholder{
 }
 
 #github{
-    position: absolute;
+    position: fixed;
     bottom: 1rem;
     right: 1rem;
     font-size: 0.8rem;
     color: #FFFFFF;
     font-style: italic
+}
+
+#dashboard{
+    background-image: url(../assets/img/bg_dashboard.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cabecalho{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #FFFFFF;
+}
+
+.cabecalho-logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cabecalho-logo #logo{
+    margin: 0;
+    padding: 0;
+    font-size: 1.5rem;
+}
+
+#conta{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#loja-de-armas{
+    color: #FFFFFF;
+    text-align: center;
+    padding: 4rem 0;
+    font-size: 2.5rem;
+}
+
+.weapons-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.weapon-card{
+    background: #1f1f1f;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.weapon-card:hover{
+    transform: scale(1.05);
+}
+
+.weapon-card #img-arma{
+    width: 100%;
+    max-width: 100px;
+}
+
+.weapon-card p{
+    margin-top: 0.5rem;
+    color: white;
+    font-size: 0.9rem;
+}
+
+.preco-em-mora{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    color: #FFD700;
+    font-weight: bold;
+}
+
+.comprar{
+    z-index: 1;
 }
