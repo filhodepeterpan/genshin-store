@@ -7,10 +7,16 @@ Desenvolver um sistema web que simula uma loja virtual com autenticação de usu
 
 ## Página de Login (index.php)
 ![Tela de Login](assets/img/screenshots/tela_login.png)
+**LOGAR:**
+- **Email:** admin@admin
+- **Senha:** 123
+&nbsp;
+
 **Implemente uma página com os campos:**
 - E-mail
 - Senha
 - Checkbox "Lembre-me"
+&nbsp;
 
 **Funcionalidades**:
 Ao submeter o formulário:
