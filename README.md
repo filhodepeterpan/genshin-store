@@ -7,6 +7,8 @@ Desenvolver um sistema web que simula uma loja virtual com autenticação de usu
 
 ## Página de Login (index.php)
 ![Tela de Login](assets/img/screenshots/tela_login.gif)
+&nbsp;
+
 **LOGAR:**
 - **Email:** admin@admin
 - **Senha:** 123
@@ -30,6 +32,8 @@ Redirecionar para a página dashboard.php após login
 
 ## Página de Produtos (dashboard.php)
 ![Tela de Dashboard](assets/img/screenshots/tela_dashboard.png)
+&nbsp;
+
 **Regras**
 - Permitir acesso somente se o usuário estiver logado
 - Caso contrário, redirecionar para login.php
