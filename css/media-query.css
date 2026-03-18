@@ -1,3 +1,9 @@
 @media (max-width: 1200px) {
+    #logo{
+        display: none;
+    }
     
+    .weapon-grid{
+        padding: 0;
+    }
 }
