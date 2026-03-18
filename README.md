@@ -31,10 +31,14 @@ Redirecionar para a página dashboard.php após login
 ## Página de Produtos (dashboard.php)
 ![Tela de Dashboard](assets/img/screenshots/tela_dashboard.png)
 **Regras**
-Permitir acesso somente se o usuário estiver logado
-Caso contrário, redirecionar para login.php
+- Permitir acesso somente se o usuário estiver logado
+- Caso contrário, redirecionar para login.php
+&nbsp;
+
 **Funcionalidades**:
 - Exibir o usuário
+&nbsp;
+
 **Criar um array de produtos, contendo:**
 - ID
 - nome
@@ -44,6 +48,8 @@ Caso contrário, redirecionar para login.php
 
 - Listar os produtos na tela
 - Cada produto deve ter um botão "Comprar"
+&nbsp;
+
 **Carrinho**:
 - Ao clicar em "Comprar":
 - Adicionar o ID do produto em um array de sessão `$_SESSION['carrinho']`
@@ -57,6 +63,8 @@ Acesso permitido apenas para usuários logados
 **Funcionalidades**
 - Criar um array associativo de produtos (id → dados)
 - Listar os produtos adicionados ao carrinho
+&nbsp;
+
 **Exibir**:
 - Nome do produto
 - Preço
