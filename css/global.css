@@ -115,7 +115,7 @@ button:hover{
     font-style: italic
 }
 
-#dashboard{
+#dashboard, #carrinho{
     background-image: url(../assets/img/bg_dashboard.jpg);
     background-size: cover;
     background-attachment: fixed;
@@ -211,4 +211,48 @@ main{
 
 .comprar{
     z-index: 1;
+}
+
+.area-carrinho{
+    background: rgba(0, 0, 0, 0.7);
+    padding: 2rem;
+    border-radius: var(--arredondamento-padrao);
+    margin: 2rem auto;
+    max-width: 40rem;
+    color: #FFFFFF;
+}
+
+.area-carrinho h1{
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.linha{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.item{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.footer-carrinho{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.botoes{
+    display: flex;
+    justify-content: end;
+    gap: 1rem;
+}
+
+#mensagem-carrinho-vazio{
+    text-align: center;
 }

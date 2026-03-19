@@ -25,11 +25,40 @@
             $mora = 500 + ($id * $id) + ($id * 7 + ($id % 3) * 9); // só gerando o número menos padrozinado possível pra não ficar tão óbvio
 
             $listaArmas[] = [
+                "id" => $arma,
                 "nome" => ucwords(str_replace('-', ' ', $arma)),
                 "imagem" => "https://genshin.jmp.blue/weapons/$arma/icon",
                 "mora" => $mora
             ];
         }
+    }
+
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){
+        $arma = $_POST['arma'];
+
+        $url = "https://genshin.jmp.blue/weapons/$arma";
+        $resposta = @file_get_contents($url);
+
+        if ($resposta !== false) {
+            $dadosArma = json_decode($resposta, true);
+
+            if(!isset($_SESSION['carrinho'])){
+                $_SESSION['carrinho'] = [];
+            }
+
+            $index = array_search($arma, $armas);
+            $mora = 500 + ($index * $index) + ($index * 7 + ($index % 3) * 9);
+
+            $_SESSION['carrinho'][] = [
+                "id" => $arma,
+                "nome" => $dadosArma['name'],
+                "imagem" => "https://genshin.jmp.blue/weapons/$arma/icon",
+                "mora" =>  $mora
+            ];
+        }
+
+        header('Location: carrinho.php');
+        exit();
     }
 ?>
 
@@ -42,7 +71,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <title>Genshin Store</title>
 </head>
-<body id="dashboard">
+<body id="carrinho">
     <header>
 
         <nav class="cabecalho">
@@ -77,8 +106,8 @@
                     </div>
                     
                     <br>
-                    <form action="carrinho.php" method="POST">
-                        <input type="hidden" name="arma" value="<?= $arma['nome'] ?>">
+                    <form action="#" method="POST">
+                        <input type="hidden" name="arma" value="<?= $arma['id'] ?>">
                         <button type="submit" class="comprar">Comprar</button>
                     </form>
                 </div>

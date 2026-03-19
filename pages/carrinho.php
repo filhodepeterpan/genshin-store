@@ -3,14 +3,13 @@
 
     if(!isset($_SESSION['usuario'])){
         header('Location: ../index.php');
+        exit;
     }
 
     $usuario = $_SESSION['usuario'];
-    $carrinhoComItens = isset($_SESSION['carrinho']);
-
-    if (isset($_POST['arma'])) {
-        $carrinho[] = $_POST['arma'];
-    }
+    $carrinho = $_SESSION['carrinho'] ?? [];
+    $totalMora = 0;
+    $carrinhoVazio = empty($carrinho);
 
 ?>
 
@@ -40,9 +39,42 @@
     </header>
 
     <main>
-        <h1 id="loja-de-armas">Carrinho</h1>
-        <div class="carrinho">
+        <div class="area-carrinho">
+            <h1>Carrinho</h1>
+            <?php if($carrinhoVazio): ?>
+                <p id="mensagem-carrinho-vazio">O carrinho está vazio.</p>
+                <div class="botoes">
+                    <button id="voltar">Explorar loja</button>
+                </div>
 
+            <?php else: ?>
+                <?php foreach($_SESSION['carrinho'] as $item): ?>
+                    <div class="linha">
+                        <div class="item">
+                            <img src="<?= $item['imagem'] ?>" alt="<?= $item['nome'] ?>" width="50">
+                            <span><?= $item['nome'] ?></span>
+                        </div>
+
+                        <div class="preco-em-mora">
+                            <img src="../assets/icons/mora.ico" alt="Mora" width="25">
+                            <span><?= $item['mora'] ?></span>
+                            <?php $totalMora += $item['mora']; ?>
+                        </div>
+                    </div>
+                    <hr>
+                <?php endforeach; ?>
+                <div class="footer-carrinho">
+                    <div class="preco-em-mora">
+                        <span>Total:</span>
+                        <img src="../assets/icons/mora.ico" alt="Mora" width="25">
+                        <span><?= $totalMora ?></span>
+                    </div>
+                    <div class="botoes">
+                        <button id="voltar">Continuar comprando</button>
+                        <button id="finalizar">Finalizar compra</button>
+                    </div>
+                </div>
+            <?php endif; ?>
         </div>
     </main>
 
