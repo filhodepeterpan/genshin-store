@@ -60,6 +60,9 @@ Redirecionar para a página dashboard.php após login
 - Redirecionar para a página carrinho.php
  
 ## Página de Carrinho (carrinho.php)
+![Tela de Carrinho](assets/img/screenshots/tela_carrinho.png)
+&nbsp;
+
 **Regras:**
 Acesso permitido apenas para usuários logados
 &nbsp;
@@ -79,6 +82,7 @@ Acesso permitido apenas para usuários logados
 - Exibir mensagem: "Carrinho vazio"
  
 ## Logout (logout.php)
+![Código do Logout](assets/img/screenshots/codigo_logout.png)
 - Destruir a sessão
 - Redirecionar para a página de login
  
