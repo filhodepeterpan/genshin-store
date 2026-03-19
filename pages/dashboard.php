@@ -39,26 +39,30 @@
         $url = "https://genshin.jmp.blue/weapons/$arma";
         $resposta = @file_get_contents($url);
 
-        if ($resposta !== false) {
-            $dadosArma = json_decode($resposta, true);
+        if ($resposta !== false){
+            $ids = array_column($_SESSION['carrinho'], 'id');
+            
+            if(!in_array($arma, $ids)){
+                $dadosArma = json_decode($resposta, true);
 
-            if(!isset($_SESSION['carrinho'])){
-                $_SESSION['carrinho'] = [];
+                if(!isset($_SESSION['carrinho'])){
+                    $_SESSION['carrinho'] = [];
+                }
+
+                $index = array_search($arma, $armas);
+                $mora = 500 + ($index * $index) + ($index * 7 + ($index % 3) * 9);
+
+                $_SESSION['carrinho'][] = [
+                    "id" => $arma,
+                    "nome" => $dadosArma['name'],
+                    "imagem" => "https://genshin.jmp.blue/weapons/$arma/icon",
+                    "mora" =>  $mora
+                ];
             }
-
-            $index = array_search($arma, $armas);
-            $mora = 500 + ($index * $index) + ($index * 7 + ($index % 3) * 9);
-
-            $_SESSION['carrinho'][] = [
-                "id" => $arma,
-                "nome" => $dadosArma['name'],
-                "imagem" => "https://genshin.jmp.blue/weapons/$arma/icon",
-                "mora" =>  $mora
-            ];
+            
+            header('Location: carrinho.php');
+            exit();
         }
-
-        header('Location: carrinho.php');
-        exit();
     }
 ?>
 
