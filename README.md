@@ -99,4 +99,4 @@ Acesso permitido apenas para usuários logados
 **Desafios Extras (Opcional)**
 - Permitir remover itens do carrinho
 - Evitar duplicação de produtos no carrinho
-- Exibir quantidade de cada item
+- Exibir quantidade de cada item!

@@ -11,6 +11,19 @@
     $totalMora = 0;
     $carrinhoVazio = empty($carrinho);
 
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){
+
+        if(isset($_POST['remover'])){
+            $index = $_POST['remover'];
+
+            unset($_SESSION['carrinho'][$index]); // removendo item
+            $_SESSION['carrinho'] = array_values($_SESSION['carrinho']); // reorganizando os indices pra evitar conflito
+
+            header('Location: carrinho.php');
+            exit();
+        }
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +62,7 @@
                 </div>
 
             <?php else: ?>
-                <?php foreach($_SESSION['carrinho'] as $item): ?>
+                <?php foreach($_SESSION['carrinho'] as $index => $item): ?>
                     <div class="linha">
                         <div class="item">
                             <img src="<?= $item['imagem'] ?>" alt="<?= $item['nome'] ?>" width="50">
@@ -61,6 +74,11 @@
                             <span><?= $item['mora'] ?></span>
                             <?php $totalMora += $item['mora']; ?>
                         </div>
+
+                        <form action="#" method="POST">
+                            <input type="hidden" name="remover" value="<?= $index ?>">
+                            <button type="submit">X</button>
+                        </form>
                     </div>
                     <hr>
                 <?php endforeach; ?>
