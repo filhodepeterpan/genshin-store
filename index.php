@@ -47,7 +47,7 @@
         <div id="login">
             
             <form action="#" method="POST">
-                <h1 id="logo">Genshin Store</h1>
+                <h1 class="logo" id="logo-login">Genshin Store</h1>
                 <div class="form-campo">
                     <label for="email">Email:</label>
                     <input type="email" name="email" placeholder="usuario@dominio.com" value="<?php echo $usuario; ?>" required>

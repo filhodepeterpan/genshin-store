@@ -3,6 +3,7 @@
 
     if(!isset($_SESSION['usuario'])){
         header('Location: ../index.php');
+        exit("Você precisa estar logado para acessar esta página!");
     }
 
     $usuario = $_SESSION['usuario'];
@@ -81,7 +82,7 @@
         <nav class="cabecalho">
             <div class="cabecalho-logo">
                 <img src="../assets/icons/genshin.ico" alt="logo" width="50">
-                <h1 id="logo">Genshin Store</h1>
+                <h1 class="logo">Genshin Store</h1>
             </div>
             <div id="conta">
                 <span id="usuario"><?php echo $usuario; ?></span>
