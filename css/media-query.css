@@ -7,6 +7,10 @@
     #logo-login{
         display: block;
     }
+
+    #cabecalho-carrinho-texto{
+        display: none;
+    }
     
     .weapon-grid{
         padding: 0;

@@ -141,12 +141,20 @@ button:hover{
     justify-content: center;
     align-items: center;
     gap: 1rem;
+    cursor: pointer;
 }
 
 .cabecalho-logo .logo{
     margin: 0;
     padding: 0;
     font-size: 1.5rem;
+}
+
+.cabecalho-carrinho{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
 }
 
 #conta{

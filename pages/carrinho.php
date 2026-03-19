@@ -35,13 +35,17 @@
     <link rel="stylesheet" href="../css/style.css">
     <title>Genshin Store</title>
 </head>
-<body id="dashboard">
+<body id="carrinho">
     <header>
 
         <nav class="cabecalho">
-            <div class="cabecalho-logo">
+            <div class="cabecalho-logo" id="cabecalho-logo">
                 <img src="../assets/icons/genshin.ico" alt="logo" width="50">
                 <h1 class="logo">Genshin Store</h1>
+            </div>
+            <div class="cabecalho-carrinho" id="cabecalho-carrinho">
+                <img src="../assets/img/carrinho.ico" alt="icone de carrinho" width="20">
+                <span id="cabecalho-carrinho-texto">Carrinho</span>
             </div>
             <div id="conta">
                 <span id="usuario"><?php echo $usuario; ?></span>
