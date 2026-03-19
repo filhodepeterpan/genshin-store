@@ -241,6 +241,11 @@ main{
     min-width: 20rem;
 }
 
+.gerenciar-item{
+    display: flex;
+    gap: 1rem;
+}
+
 .footer-carrinho{
     display: flex;
     justify-content: space-between;

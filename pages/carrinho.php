@@ -68,17 +68,19 @@
                             <img src="<?= $item['imagem'] ?>" alt="<?= $item['nome'] ?>" width="50">
                             <span><?= $item['nome'] ?></span>
                         </div>
+                        
+                        <div class="gerenciar-item">
+                            <div class="preco-em-mora">
+                                <img src="../assets/icons/mora.ico" alt="Mora" width="25">
+                                <span><?= $item['mora'] ?></span>
+                                <?php $totalMora += $item['mora']; ?>
+                            </div>
 
-                        <div class="preco-em-mora">
-                            <img src="../assets/icons/mora.ico" alt="Mora" width="25">
-                            <span><?= $item['mora'] ?></span>
-                            <?php $totalMora += $item['mora']; ?>
+                            <form action="#" method="POST">
+                                <input type="hidden" name="remover" value="<?= $index ?>">
+                                <button type="submit">X</button>
+                            </form>
                         </div>
-
-                        <form action="#" method="POST">
-                            <input type="hidden" name="remover" value="<?= $index ?>">
-                            <button type="submit">X</button>
-                        </form>
                     </div>
                     <hr>
                 <?php endforeach; ?>
