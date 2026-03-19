@@ -42,7 +42,8 @@
         <div class="area-carrinho">
             <h1>Carrinho</h1>
             <?php if($carrinhoVazio): ?>
-                <p id="mensagem-carrinho-vazio">O carrinho está vazio.</p>
+                <p id="mensagem-carrinho-vazio"><i>Você ainda não adicionou nenhuma arma ao carrinho</i></p>
+                <br><br>
                 <div class="botoes">
                     <button id="voltar">Explorar loja</button>
                 </div>

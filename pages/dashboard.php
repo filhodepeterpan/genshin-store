@@ -40,7 +40,7 @@
         $resposta = @file_get_contents($url);
 
         if ($resposta !== false){
-            $ids = array_column($_SESSION['carrinho'], 'id');
+            $ids = array_column($_SESSION['carrinho'] ?? [], 'id');
             
             if(!in_array($arma, $ids)){
                 $dadosArma = json_decode($resposta, true);
@@ -59,7 +59,7 @@
                     "mora" =>  $mora
                 ];
             }
-            
+
             header('Location: carrinho.php');
             exit();
         }
