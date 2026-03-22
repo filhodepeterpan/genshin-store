@@ -22,6 +22,10 @@
             header('Location: carrinho.php');
             exit();
         }
+
+        if(isset($_POST['pagar'])){
+            header('Location: compra-realizada.php');
+        }
     }
 
 ?>
@@ -33,7 +37,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../assets/icons/genshin.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/style.css">
-    <title>Genshin Store</title>
+    <title>Genshin Store | Carrinho</title>
 </head>
 <body id="carrinho">
     <header>
@@ -96,7 +100,10 @@
                     </div>
                     <div class="botoes">
                         <button id="voltar">Continuar comprando</button>
-                        <button id="finalizar">Finalizar compra</button>
+                        <form action="#" method="POST">
+                            <input type="hidden" name="pagar" id="pagar">
+                            <button type="submit" id="finalizar">Finalizar compra</button>
+                        </form>
                     </div>
                 </div>
             <?php endif; ?>
