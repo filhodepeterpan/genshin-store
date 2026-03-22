@@ -16,7 +16,7 @@ body{
     font-family: var(--fonte-padrao);
 }
 
-#bg-login{
+#bg-login, #bg-compra-realizada{
     position: fixed;
     top: 0;
     left: 0;
@@ -24,16 +24,27 @@ body{
     height: 100%;
     object-fit: cover;
     z-index: -1;
+    pointer-events: none;
 }
 
-#login{
+#login, #container-compra-realizada{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    z-index: 1;
 }
 
-.logo{
+#container-compra-realizada{
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo, .mensagem-compra-realizada{
     font-family: var(--fonte-logo);
     text-align: center;
     margin: 0 0 3rem 0;

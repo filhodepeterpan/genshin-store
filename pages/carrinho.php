@@ -24,7 +24,10 @@
         }
 
         if(isset($_POST['pagar'])){
+            $_SESSION['pagar'] = $_POST['pagar'];
+
             header('Location: compra-realizada.php');
+            exit();
         }
     }
 
@@ -101,7 +104,7 @@
                     <div class="botoes">
                         <button id="voltar">Continuar comprando</button>
                         <form action="#" method="POST">
-                            <input type="hidden" name="pagar" id="pagar">
+                            <input type="hidden" name="pagar" id="pagar" value="1">
                             <button type="submit" id="finalizar">Finalizar compra</button>
                         </form>
                     </div>
