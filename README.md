@@ -85,6 +85,10 @@ Acesso permitido apenas para usuários logados
 ![Código do Logout](assets/img/screenshots/codigo_logout.png)
 - Destruir a sessão
 - Redirecionar para a página de login
+
+## Finalização (compra-realizada.php)
+ ![Tela de compra realizada](assets/img/screenshots/compra_realizada.gif)
+ &nbsp;
  
 ## Regras Técnicas
 
