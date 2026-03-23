@@ -10,6 +10,9 @@
         header('Location: carrinho.php');
         exit("Você não confirmou sua compra ainda!");
     }
+
+    unset($_SESSION['carrinho']);
+    unset($_SESSION['pagar']);
 ?>
 
 <!DOCTYPE html>
