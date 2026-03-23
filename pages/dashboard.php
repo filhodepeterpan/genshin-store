@@ -8,6 +8,10 @@
 
     $usuario = $_SESSION['usuario'];
 
+    function geraMora($i){
+        return 500 + ($i * $i) + ($i * 7 + ($i % 3) * 9); // só gerando o número menos padrozinado possível pra não ficar tão óbvio
+    }
+
     // GENSHIN.DEV
     $api = "https://genshin.jmp.blue/weapons";
 
@@ -23,7 +27,7 @@
 
     if(is_array($armas)){
         foreach ($armas as $id => $arma) {
-            $mora = 500 + ($id * $id) + ($id * 7 + ($id % 3) * 9); // só gerando o número menos padrozinado possível pra não ficar tão óbvio
+            $mora = geraMora($id);
 
             $listaArmas[] = [
                 "id" => $arma,
@@ -51,7 +55,7 @@
                 }
 
                 $index = array_search($arma, $armas);
-                $mora = 500 + ($index * $index) + ($index * 7 + ($index % 3) * 9);
+                $mora = geraMora($index);
 
                 $_SESSION['carrinho'][] = [
                     "id" => $arma,
