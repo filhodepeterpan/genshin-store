@@ -106,16 +106,16 @@ button{
     background: var(--gradiente-tematico);
 }
 
-#entrar{
-    width: 100%;
-}   
-
 button:hover{
     cursor: pointer;
     background: white;
     color: var(--cor-destaque);
     transition: all 0.3s;
 }
+
+#entrar{
+    width: 100%;
+}   
 
 #github{
     position: fixed;
@@ -230,6 +230,12 @@ main{
 
 .comprar{
     z-index: 1;
+}
+
+#adicionado-ao-carrinho{
+    cursor: not-allowed;
+    background: #FFFFFF;
+    color: var(--cor-destaque);
 }
 
 .area-carrinho{

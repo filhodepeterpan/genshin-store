@@ -24,6 +24,7 @@
     }
 
     $listaArmas = [];
+    $ids = array_column($_SESSION['carrinho'] ?? [], 'id');
 
     if(is_array($armas)){
         foreach ($armas as $id => $arma) {
@@ -33,7 +34,8 @@
                 "id" => $arma,
                 "nome" => ucwords(str_replace('-', ' ', $arma)),
                 "imagem" => "https://genshin.jmp.blue/weapons/$arma/icon",
-                "mora" => $mora
+                "mora" => $mora,
+                "status" => in_array($arma, $ids)
             ];
         }
     }
@@ -45,7 +47,6 @@
         $resposta = @file_get_contents($url);
 
         if ($resposta !== false){
-            $ids = array_column($_SESSION['carrinho'] ?? [], 'id');
             
             if(!in_array($arma, $ids)){
                 $dadosArma = json_decode($resposta, true);
@@ -61,7 +62,7 @@
                     "id" => $arma,
                     "nome" => $dadosArma['name'],
                     "imagem" => "https://genshin.jmp.blue/weapons/$arma/icon",
-                    "mora" =>  $mora
+                    "mora" =>  $mora,
                 ];
             }
 
@@ -121,7 +122,13 @@
                     <br>
                     <form action="#" method="POST">
                         <input type="hidden" name="arma" value="<?= $arma['id'] ?>">
-                        <button type="submit" class="comprar">Comprar</button>
+
+                        <?php if (!$arma['status']): ?>
+                            <button type="submit" class="comprar">Comprar</button>
+
+                        <?php else: ?>
+                            <button disabled id="adicionado-ao-carrinho">Adicionado ao carrinho</button>
+                        <?php endif; ?>
                     </form>
                 </div>
             </div>
