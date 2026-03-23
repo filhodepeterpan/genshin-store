@@ -9,7 +9,7 @@
     $usuario = $_SESSION['usuario'];
 
     function geraMora($i){
-        return 500 + ($i * $i) + ($i * 7 + ($i % 3) * 9); // só gerando o número menos padrozinado possível pra não ficar tão óbvio
+        return 500 + ($i * $i) + ($i * 7 + ($i % 3) * 9) - $i/2 + ($i*$i*$i); // só gerando o número menos padrozinado possível pra não ficar tão óbvio
     }
 
     // GENSHIN.DEV
